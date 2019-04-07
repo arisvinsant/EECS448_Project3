@@ -10,4 +10,4 @@ Friday Lab Group Project 3
 3. Xingjian Ding
 4. Saharsh gupta
 
-This branch is the demo of the bird.
+This branch is the demo for the bird.
