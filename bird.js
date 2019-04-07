@@ -89,11 +89,28 @@ FlappyBird.prototype = {
 	}
 };
 
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+};
+
 var game = new FlappyBird();
 var Speed = 20;
 var IsPlay = false;
 var GameTime = null;
 var btn_start;
+let bg_sound = new sound("sound/bensound-perception.mp3");
+let crash_sound = new sound("sound/076932073-crash-impact.m4a");
 window.onload = InitGame;
 
 function InitGame() {
@@ -115,10 +132,13 @@ function InitGame() {
 }
 
 function RunGame(speed) {
+	bg_sound.play();
 	var updateTimer = setInterval(function() {
 
 		game.CanMove();
 		if (game.gameOver) {
+			bg_sound.stop();
+			crash_sound.play();
 			game.ShowOver();
 			clearInterval(updateTimer);
 			return;
