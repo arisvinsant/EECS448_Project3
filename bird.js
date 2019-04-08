@@ -86,6 +86,13 @@ FlappyBird.prototype = {
 			c.drawImage(overImg, (this.mapWidth - overImg.width) / 2, (this.mapHeight - overImg.height) / 2 - 50);
 		}.bind(this);
 		return;
+	},
+	Showpipe: function() {
+		let pipe = new Image();
+		pipe.src = "img/pipe.png";
+		pipe.onload = function(){
+			c.drawImage(pipe, 200, 340);
+		}.bind(this);
 	}
 };
 
@@ -116,7 +123,7 @@ function InitGame() {
 
 function RunGame(speed) {
 	var updateTimer = setInterval(function() {
-
+		game.Showpipe();
 		game.CanMove();
 		if (game.gameOver) {
 			game.ShowOver();
