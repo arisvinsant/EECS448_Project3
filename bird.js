@@ -46,6 +46,12 @@ FlappyBird.prototype = {
 		image.onload = function(){
 			this.bird = new Bird(this.startX, this.startY, image);
 		}.bind(this);
+		
+		let pipimage=new Image();
+		pipimage.src="img/pipe.png";
+		pipimage.onload = function(){
+			this.pipe = new pipe(this.pipeX, this.pipeY, pipimage);
+		}.bind(this);
 	},
 
 	CanMove: function() { 
