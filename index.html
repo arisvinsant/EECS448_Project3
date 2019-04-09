@@ -18,8 +18,8 @@ function getRandom(min, max) {
 let gap=200;
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-let up_height = Math.floor(Math.random()*60);
-let down_height= (60 - up_height)*3;
+let up_height = getRandom(100,200);
+let down_height= 453-gap-up_height;
 let pipegap=120;
 
 
@@ -107,7 +107,7 @@ FlappyBird.prototype = {
 		pdmimage.src = "img/down_mod.png";		
 		pdimage.onload = function(){
 			ctx.drawImage(pdimage,180,300,40,down_height)
-			ctx.drawImage(pdmimage,180,350,40,100)
+			ctx.drawImage(pdmimage,180,360,40,50)
 		}.bind(this);
 	},
 
@@ -118,7 +118,7 @@ FlappyBird.prototype = {
 		puimage.src = "img/up_pipe.png";
 		pumimage.src = "img/up_mod.png";		
 		puimage.onload = function(){
-			ctx.drawImage(puimage,180,50,40,up_height*3)
+			ctx.drawImage(puimage,180,50,40,up_height)
 			ctx.drawImage(pumimage,180,0,40,100)
 		}.bind(this);
 	},
