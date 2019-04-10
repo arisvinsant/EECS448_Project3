@@ -21,3 +21,5 @@ References:
   https://www.w3schools.com/: For help with HTML and Javascript.
   
   https://stackoverflow.com/: For any errors and bugs we faced.
+  
+  https://github.com/sourabhv/FlapPyBird/tree/master/assets/sprites: For Some Images from the original flappy bird.
