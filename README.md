@@ -12,6 +12,9 @@ Friday Lab Group Project 3
 
 This branch is the demo for the bird.
 
+Background sound: https://www.bensound.com/royalty-free-music/track/perception
+
+Crash Sound: https://www.pond5.com/sound-effect/76932073/crash-impact.html
 
 References:
 
