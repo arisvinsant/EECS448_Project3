@@ -147,6 +147,15 @@ let up_img = new Image();
 up_img.src = "img/camp_up.jpeg";
 let down_img = new Image();
 down_img.src = "img/camp_down.jpeg";
+let seconds = 0;
+let stop = false;
+let s = setInterval(function () {
+  seconds++;
+  document.getElementById('timer').innerHTML = "Time elapsed: " + seconds + "s";
+  if(stop){
+	  clearInterval(s);
+  }
+}, 1000);
 function obstacle(){
 	count += 1;
 	if ((count == 1) || ((count%150) == 0)) {
@@ -191,6 +200,7 @@ function RunGame(speed) {
 		
 		game.CanMove();
 		if (game.gameOver) {
+			stop =  true;
 			bg_sound.stop();
 			crash_sound.play();
 			game.ShowOver();
@@ -201,6 +211,7 @@ function RunGame(speed) {
 		game.CheckTouch();
 		for (i = 0; i < myObstacles.length; i += 1) {
 			if (myObstacles[i].crashWith(game.bird)) {
+				stop=true;
 				bg_sound.stop();
 				crash_sound.play();
 				game.ShowOver();
