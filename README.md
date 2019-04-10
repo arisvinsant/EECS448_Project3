@@ -11,3 +11,10 @@ Friday Lab Group Project 3
 4. Saharsh gupta
 
 This branch is the demo for the bird.
+
+
+References:
+
+  https://www.w3schools.com/: For help with HTMl or Javascript.
+  
+  https://stackoverflow.com/: For any errors and bugs we faced.
