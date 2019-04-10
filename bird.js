@@ -133,7 +133,7 @@ function sound(src) {
 };
 
 var game = new FlappyBird();
-var Speed = 20;
+var Speed = 15;
 var IsPlay = false;
 var GameTime = null;
 var btn_start;
@@ -142,14 +142,19 @@ let crash_sound = new sound("sound/076932073-crash-impact.m4a");
 let myObstacles = new Array();
 window.onload = InitGame;
 let count = 0;
+let h = 100;
 
 function obstacle(){
 	count += 1;
-	if ((count == 1) || ((count%150) == 0)) {
+	if ((count == 1) || ((count%200) == 0)) {
 		let x = game.mapWidth;
 		let y=0;
-		myObstacles.push(new component(10, 170, "green", x, y));
-		myObstacles.push(new component(10, 150, "green", x+80, game.mapHeight-205));
+		myObstacles.push(new component(10, h, "green", x, y));
+		myObstacles.push(new component(10, game.mapHeight-h-100, "green", x, h+150));
+		h += 20;
+		if (h>200){
+			h = 100;
+		}
 	  }
 	for (i = 0; i < myObstacles.length; i += 1) {
 		myObstacles[i].x += -1;
