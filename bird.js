@@ -149,13 +149,6 @@ let down_img = new Image();
 down_img.src = "img/camp_down.jpeg";
 let seconds = 0;
 let stop = false;
-let s = setInterval(function () {
-  seconds++;
-  document.getElementById('timer').innerHTML = "Time elapsed: " + seconds + "s";
-  if(stop){
-	  clearInterval(s);
-  }
-}, 1000);
 function obstacle(){
 	count += 1;
 	if ((count == 1) || ((count%150) == 0)) {
@@ -196,6 +189,13 @@ function InitGame() {
 
 function RunGame(speed) {
 	bg_sound.play();
+	let s = setInterval(function () {
+		seconds++;
+		document.getElementById('timer').innerHTML = "Time elapsed: " + seconds + "s";
+		if(stop){
+			clearInterval(s);
+		}
+	  }, 1000);
 	var updateTimer = setInterval(function() {
 		
 		game.CanMove();
