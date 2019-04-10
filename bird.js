@@ -150,7 +150,7 @@ function obstacle(){
 		let x = game.mapWidth;
 		let y=0;
 		myObstacles.push(new component(10, h, "green", x, y));
-		myObstacles.push(new component(10, game.mapHeight-h-100, "green", x, h+150));
+		myObstacles.push(new component(10, game.mapHeight-h-205, "green", x, h+150));
 		h += 20;
 		if (h>200){
 			h = 100;
