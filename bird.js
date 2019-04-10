@@ -89,18 +89,16 @@ FlappyBird.prototype = {
 	}
 };
 
-function component(width, height, color, x, y) {
+function component(img,width, height, color, x, y) {
     this.width = width;
 	this.height = height;
-	this.img = new Image();
-	this.img.src = "img/up_pipe.png";
     this.speedX = 0;
     this.speedY = 0;    
     this.x = x;
     this.y = y;    
     this.update = function() {
         //c.fillStyle = color;
-        c.drawImage(this.img,this.x, this.y, this.width, this.height);
+        c.drawImage(img,this.x, this.y, this.width, this.height);
     }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
@@ -145,14 +143,17 @@ let myObstacles = new Array();
 window.onload = InitGame;
 let count = 0;
 let h = 100;
-
+let up_img = new Image();
+up_img.src = "img/camp_up.jpeg";
+let down_img = new Image();
+down_img.src = "img/camp_down.jpeg";
 function obstacle(){
 	count += 1;
-	if ((count == 1) || ((count%200) == 0)) {
+	if ((count == 1) || ((count%150) == 0)) {
 		let x = game.mapWidth;
 		let y=0;
-		myObstacles.push(new component(20, h, "green", x, y));
-		myObstacles.push(new component(20, game.mapHeight-h-205, "green", x, h+150));
+		myObstacles.push(new component(down_img,20, h, "green", x, y));
+		myObstacles.push(new component(up_img,20, game.mapHeight-h-205, "green", x, h+150));
 		h += 20;
 		if (h>200){
 			h = 100;
