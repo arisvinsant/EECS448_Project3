@@ -91,14 +91,16 @@ FlappyBird.prototype = {
 
 function component(width, height, color, x, y) {
     this.width = width;
-    this.height = height;
+	this.height = height;
+	this.img = new Image();
+	this.img.src = "img/up_pipe.png";
     this.speedX = 0;
     this.speedY = 0;    
     this.x = x;
     this.y = y;    
     this.update = function() {
-        c.fillStyle = color;
-        c.fillRect(this.x, this.y, this.width, this.height);
+        //c.fillStyle = color;
+        c.drawImage(this.img,this.x, this.y, this.width, this.height);
     }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
@@ -149,8 +151,8 @@ function obstacle(){
 	if ((count == 1) || ((count%200) == 0)) {
 		let x = game.mapWidth;
 		let y=0;
-		myObstacles.push(new component(10, h, "green", x, y));
-		myObstacles.push(new component(10, game.mapHeight-h-205, "green", x, h+150));
+		myObstacles.push(new component(20, h, "green", x, y));
+		myObstacles.push(new component(20, game.mapHeight-h-205, "green", x, h+150));
 		h += 20;
 		if (h>200){
 			h = 100;
